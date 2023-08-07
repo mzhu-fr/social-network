@@ -19,4 +19,15 @@ code {
   list-style: none;
   text-decoration: none;
   color: inherit;
+  font-family: inherit;
+}
+
+:root {
+  --primary : #ffcccc;
+  --secondary : #714288;
+  --title : #9873b9;
+  --text : #9873b9;
+  --black : #301934;
+  --white : #e6e6e6;
+  --opacity : rgba(113, 66, 136, 0.5);
 }

@@ -1,5 +1,28 @@
-.homeSection
+.welcomeSection {
+    background: var(--primary);
+}
 
 .videoHomePage {
+    z-index: -1;
+    position: absolute;
+    /* opacity: 0.4; */
     object-fit: cover;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    /* top: 0; left: 0; */
+}
+
+.videoBox {
+    z-index: -1;
+    position: fixed;
+}
+
+.midTitle {
+    z-index: 2;
+    /* position : absolute; */
+    /* right : auto; */
+    /* left: 50%;
+    top: 50%;
+    transform : translate(-50%, -50%) */
 }
