@@ -5,9 +5,8 @@ class Header extends Component {
        render (){
         return (
             <navbar className="navbar">
-                <a>About</a>
-                <p>Pirouette</p>
-                <a>Wow</a>
+                <p>About</p>
+                <p>Wow</p>
             </navbar>
         );
     }
