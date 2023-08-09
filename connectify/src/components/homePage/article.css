@@ -1,0 +1,39 @@
+.articlePart {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.articlePart img {
+    object-fit: cover;
+    width: 100%;
+    /* position: center; */
+    /* max-height: 100vh; */
+    height: 100vh;
+}
+
+.divImage {
+    flex: 1;
+}
+
+.divText {
+    flex: 1;
+    background-color: var(--secondary);
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.divText > h2 {
+    font-size: 4em;
+    padding: 2em 2em 0 2em;
+    color: var(--primary);
+}
+
+.divText > p {
+    font-size: 2em;
+    padding: 0 2em 2em 2em;
+    color: var(--white);
+    /* font-weight: bold; */
+}

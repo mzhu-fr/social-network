@@ -7,12 +7,12 @@ class Header extends Component {
             <div className="navbar">
                 
                 <a href="http://localhost:3000/" className="logoNav">Connectify</a>
-                <navbar className="navbarContent">
+                <div className="navbarContent">
                     <a href="http://localhost:3000/" className="homeStyle">Home</a>
                     <p>Log in</p>
                     <p className="signBox">Sign up</p>
                     {/* <p>Contact Us</p> */}
-                </navbar>
+                </div>
             </div>
         );
     }

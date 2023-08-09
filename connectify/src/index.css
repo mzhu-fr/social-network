@@ -29,5 +29,6 @@ code {
   --text : #9873b9;
   --black : #301934;
   --white : #e6e6e6;
-  --opacity : rgba(113, 66, 136, 0.5);
+  --secondary-opacity : rgba(113, 66, 136, 0.5);
+  --opacity-primary : rgba(255, 204, 204, 0.5);
 }

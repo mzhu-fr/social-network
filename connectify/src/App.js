@@ -1,5 +1,4 @@
 import './App.css';
-import Header from './components/navbar/navbar';
 import AppRoute from './AppRoute';
 
 function App() {
