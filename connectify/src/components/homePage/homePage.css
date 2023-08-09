@@ -53,3 +53,14 @@
 .welcomeLanguage > h1 {
     color: var(--secondary);
 }
+
+
+@media (max-width: 1300px) {
+    .welcomeLanguage > p {
+        font-size: 1em;
+    }
+
+    .homeBody h1 {
+        font-size: 3em;
+    }
+}

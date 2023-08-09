@@ -24,6 +24,7 @@
 .logoNav {
     font-size: 2em;
     padding: 0.5em;
+    text-shadow: 1px 1px 1px var(--primary);
     font-family: 'Chicle', cursive;
     color : var(--secondary)
 }
@@ -38,4 +39,14 @@
     border: 1px solid transparent;
     border-radius: 15px;
     background-color: var(--secondary-opacity);
+}
+
+@media (max-width: 1300px) {
+    .logoNav {
+        font-size: 1em;
+    }
+
+    .navbarContent {
+        display: none;
+    }
 }

@@ -18,11 +18,19 @@
 
 .divText {
     flex: 1;
-    background-color: var(--secondary);
+    /* background-color: var(--secondary); */
     text-align: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
+}
+
+.left {
+    background: var(--secondary);
+}
+
+.right {
+    background-color: var(--title);
 }
 
 .divText > h2 {
@@ -36,4 +44,18 @@
     padding: 0 2em 2em 2em;
     color: var(--white);
     /* font-weight: bold; */
+}
+
+@media (max-width: 1300px) {
+    .divText > p {
+        font-size : 1em;
+    }
+
+    .divText > h2 {
+        font-size: 2em;
+    }
+
+    .divImage {
+        display: none;
+    }
 }

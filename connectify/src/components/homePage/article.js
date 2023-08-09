@@ -7,7 +7,7 @@ function articles({children, title, image, side}) {
         return (
             <div className="articlePart">
                 <div className="divImage">{displayImage}</div>
-                <div className="divText">
+                <div className="divText left">
                     <h2>{title}</h2>
                     <p>{children}</p>
                 </div>
@@ -17,7 +17,7 @@ function articles({children, title, image, side}) {
     else {
         return (
             <div className="articlePart">
-                <div className="divText">
+                <div className="divText right">
                     <h2>{title}</h2>
                     <p>{children}</p>
                 </div>

@@ -4,6 +4,9 @@ import boxMusic from '../../ressources/home/fd_accueil.mp4';
 import Articles from './article'
 import Actu from '../../ressources/home/fd_actualite.jpg';
 import Who from '../../ressources/home/fd_qsn.jpg';
+import Footer from '../footer/footer';
+import ContactForm from '../form/form';
+import Listen from '../../ressources/contact/fd_contact.jpg';
 
 const translations = {
     fr: "Bienvenue",
@@ -57,16 +60,21 @@ function homePage() {
                         </section>
                         <section className="articles">
 
-                            <Articles title="Actualités" image={Actu} side="left">Le lieu où vous pouvez vous connecter avec vos amis, partager des moments spéciaux et explorer de nouvelles rencontres.Exprimez-vous à travers des photos, des vidéos et des messages, et découvrez le monde passionnant de la communauté Connectify.<br />Rejoignez-nous dès maintenant et commencez à créer des liens, à inspirer et à être inspiré. Connectify est là pour vous aider à rester connecté et à célébrer les moments de la vie, ensemble.</Articles>
+                            <Articles title="Actualités" image={Actu} side="left">Le lieu où vous pouvez vous connecter avec vos amis, partager des moments spéciaux et explorer de nouvelles rencontres.<br/>Exprimez-vous à travers des photos, des vidéos et des messages, et découvrez le monde passionnant de la communauté Connectify.<br />Rejoignez-nous dès maintenant et commencez à créer des liens, à inspirer et à être inspiré. Connectify est là pour vous aider à rester connecté et à célébrer les moments de la vie, ensemble.</Articles>
                             <Articles title="Qui sommes nous ?" image={Who} side="right">
                             Chez Connectify, nous sommes une plateforme sociale dynamique et inclusive, dédiée à connecter les individus du monde entier.<br />Notre objectif est de créer un espace numérique où chacun peut se sentir libre d'exprimer sa véritable identité, de partager ses passions et de tisser des liens authentiques.
                             </Articles>
+                            {/* <ContactForm /> */}
+                            <Articles title="Contact us" image={Listen} side="right"><ContactForm /></Articles>
                         </section>
                         <section className="newsletter">
                             {/* <News /> */}
                         </section>
                     </div>
                 </main>
+                <footer>
+                    <Footer />
+                </footer>
             </div>
         </div>
         </>

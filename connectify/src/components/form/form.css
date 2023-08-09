@@ -1,0 +1,29 @@
+.contactForm {
+    background: var(--secondary);
+    width: 100%;
+    margin: auto;
+    display: flex;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.formContent {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+button{
+    width: 10%;
+    margin: 0 auto;
+}
+
+input {
+    width: 100%;
+}
