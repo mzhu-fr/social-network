@@ -1,11 +1,15 @@
 .navbar {
     background: inherit;
-    font-size : 2em;
+    background-color: transparent;
+    font-size: 2em;
     text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    top: 0; right: 0; left : 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
 }
 
 .navbarContent {
@@ -16,21 +20,21 @@
     padding: 0.5em;
 }
 
-.navbarContent > p {
-    padding : 0.3em;
+.navName {
+    margin-right: 1em;
     color: var(--white);
 }
 
 .logoNav {
     font-size: 2em;
-    padding: 0.5em;
+    padding: 0.2em;
     text-shadow: 1px 1px 1px var(--primary);
     font-family: 'Chicle', cursive;
-    color : var(--secondary)
+    color: var(--secondary)
 }
 
 .homeStyle {
-    color : var(--secondary);
+    color: var(--primary);
     text-shadow: 1px 1px 1px var(--black);
 }
 
@@ -38,7 +42,8 @@
     display: block;
     border: 1px solid transparent;
     border-radius: 15px;
-    background-color: var(--secondary-opacity);
+    padding: 0.5em;
+    background-color: var(--opacity-primary);
 }
 
 @media (max-width: 1300px) {

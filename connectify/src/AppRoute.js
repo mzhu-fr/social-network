@@ -1,32 +1,43 @@
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Home from './components/homePage/homePage';
-import ErrorPage from './components/errorPage/errorPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './page/homePage';
+import ErrorPage from './page/errorPage';
+import Contact from './page/contact';
+import Connexion from './page/login';
+import SignUp from './page/sign';
+
+import Navbar from './components/navbar/navbar';
+import Footer from './components/footer/footer';
 
 function AppRoutes() {
-    return (
-  
-      <Router>
+  return (
+
+    <Router>
+
+      <header><Navbar /></header>
+
+      <main>
         <Routes>
-          
-          <Route
-            path="/"
-              element={
-                <Home />
-              }
-          />
-  
-          <Route
-            path="*"
-            element={
-              <ErrorPage />
-            }
-          />
-  
+
+          <Route path="/" element={<Home />} />
+
+          <Route path="/contact" element={<Contact />} />
+
+          <Route path="/login" element={<Connexion />} />
+
+          <Route path="/signup" element={<SignUp />} />
+
+          <Route path="*" element={<ErrorPage />} />
+
+
+
         </Routes>
-      </Router>
-  
-    )
-  }
-  
-  export default AppRoutes;
-  
+      </main>
+
+      <footer><Footer /></footer>
+
+    </Router>
+
+  )
+}
+
+export default AppRoutes;

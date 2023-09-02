@@ -1,18 +1,22 @@
 import { Component } from 'react';
-import './navbar.css'
+import './navbar.css';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
-       render (){
+    render() {
         return (
             <div className="navbar">
-                
-                <a href="http://localhost:3000/" className="logoNav">Connectify</a>
+
+                <Link to="/" className="logoNav">Connectify</Link >
+
                 <div className="navbarContent">
-                    <a href="http://localhost:3000/" className="homeStyle">Home</a>
-                    <p>Log in</p>
-                    <p className="signBox">Sign up</p>
-                    {/* <p>Contact Us</p> */}
+                    <Link to="/" className="navName homeStyle">Home</Link>
+
+                    <Link to="/login" className="navName">Log In</Link>
+
+                    <Link to="/signup" className="navName signBox">Sign Up</Link>
                 </div>
+
             </div>
         );
     }

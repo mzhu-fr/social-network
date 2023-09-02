@@ -1,8 +1,8 @@
 import './article.css';
 
-function articles({children, title, image, side}) {
+function articles({ children, title, image, side }) {
 
-    let displayImage = <img src={image} alt="actu"/>
+    let displayImage = <img src={image} alt="actu" />
     if (side === "left") {
         return (
             <div className="articlePart">

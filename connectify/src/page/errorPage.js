@@ -1,6 +1,5 @@
-import './errorPage.css';
-import '../../index.css';
-import boxMusic from '../../ressources/home/fd_accueil.mp4'
+import '../style/errorPage.css';
+import boxMusic from '../ressources/home/fd_accueil.mp4';
 
 function errorPage() {
     return (
