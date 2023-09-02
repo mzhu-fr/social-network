@@ -33,13 +33,13 @@
     background-color: var(--title);
 }
 
-.divText > h2 {
+.divText>h2 {
     font-size: 4em;
     padding: 2em 2em 0 2em;
     color: var(--primary);
 }
 
-.divText > p {
+.paragraph {
     font-size: 1.5em;
     padding: 0 2em 2em 2em;
     color: var(--white);
@@ -47,11 +47,11 @@
 }
 
 @media (max-width: 1300px) {
-    .divText > p {
-        font-size : 1em;
+    .divText>p {
+        font-size: 1em;
     }
 
-    .divText > h2 {
+    .divText>h2 {
         font-size: 2em;
     }
 

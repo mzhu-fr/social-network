@@ -9,7 +9,7 @@ function articles({ children, title, image, side }) {
                 <div className="divImage">{displayImage}</div>
                 <div className="divText left">
                     <h2>{title}</h2>
-                    <p>{children}</p>
+                    <div className="paragraph">{children}</div>
                 </div>
             </div>
         )
@@ -19,7 +19,7 @@ function articles({ children, title, image, side }) {
             <div className="articlePart">
                 <div className="divText right">
                     <h2>{title}</h2>
-                    <p>{children}</p>
+                    <div className="paragraph">{children}</div>
                 </div>
                 <div className="divImage">{displayImage}</div>
             </div>
