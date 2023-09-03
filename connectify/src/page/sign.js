@@ -1,90 +1,169 @@
 import '../style/connexion.css';
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import React, { useContext, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from '../page/userContext';
 
 import Connect from '../ressources/connection/fd_connexion.jpg';
 import Articles from '../components/article/article';
 
-function signUpForm() {
+// REGEX PATTERN
+function checkPwd(pwd) {
+    let validPwd = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,16}$/);
+    return (validPwd.test(pwd));
+}
+
+// SIGN UP FORM
+async function SignUpForm() {
+
+    const { signUp } = useContext(UserContext);
+    const navigate = useNavigate();
+
+    // CONST TO GET THE INPUT
+    const inputs = useRef([]);
+    const addInputs = el => {
+        if (el && !inputs.current.includes(el)) {
+            inputs.current.push(el);
+        }
+    }
+
+    // CONST TO CLEAN THE INPUT OF THE FORM
+    const formReference = useRef();
+
+    // CONST TO ADD ERR MESSAGES
+    const [validation, setValidation] = useState("");
+    const [validPwd, setValidPwd] = useState("");
+
+    const username = inputs.current[0].value;
+    const userRef = db.collection('userID').doc('user-info');
+
+    await userRef.set({
+        'username': username,
+    })
+
+    const handleOnChange = () => {
+        setValidPwd("");
+    }
+
+    // VALIDATE THE FORM AND CHECK THE WRONGS
+    const handleForm = async e => {
+        e.preventDefault();
+        if ((inputs.current[1].value.length || inputs.current[2].value.length) < 6) {
+            if (inputs.current[1].value.length < 6) {
+                setValidation("6 characters minimum");
+            }
+            if (inputs.current[2].value.length < 6) {
+                setValidPwd("6 character minimum with 1 uppercase, 1 lowercase, 1 number and 1 symbol");
+            }
+            return;
+        }
+        else if (!checkPwd(inputs.current[2].value)) {
+            setValidPwd("6 character minimum with 1 uppercase, 1 lowercase, 1 number and 1 symbol");
+            return;
+        }
+        else if (inputs.current[2].value !== inputs.current[3].value) {
+            setValidPwd("Password do not match !");
+            return;
+        }
+        try {
+            const credentials = await signUp(
+                inputs.current[1].value,
+                inputs.current[2].value
+            )
+            formReference.current.reset();
+            setValidation("");
+            navigate("/profile/profile-wall")
+        }
+        catch (err) {
+            if (err.code === "auth/invalid-email") {
+                setValidation("Email format invalid");
+            }
+            if (err.code === "auth/email-already-in-use") {
+                setValidation("Email already used");
+            }
+        }
+    }
+
     return (
-        <div className="signUpForm">
+        <>
 
-            <form>
-                <div className="name">
+            <div className="signUpForm">
 
-                    <div className="famName">
-                        <label>Last Name :</label>
-                        <input type="text" placeholder='Input your last name' />
-                        <p className="err-text"></p>
+                <form ref={formReference} onSubmit={handleForm}>
+
+                    {/* USERNAME */}
+                    <div className="name">
+
+                        <div className="userName">
+                            <label>Username :</label>
+                            <input name="username" className="form-inputs" required ref={addInputs} type="text" placeholder='Input an username' onChange={handleOnChange} />
+                        </div>
                     </div>
 
-                    <div className="FirstName">
-                        <label>FirstName :</label>
-                        <input type="text" placeholder='Input your first name' />
-                        <p className="err-text"></p>
+                    {/* EMAIL */}
+                    <div>
+                        <label>Email :</label>
+                        <input name="email" className="form-inputs" required ref={addInputs} type="email" placeholder="Enter your mail" onChange={handleOnChange} />
+                        <p className="err-text">{validation}</p>
                     </div>
 
-                </div>
+                    {/* GENRE/SEX */}
+                    <div className="genre-type">
+                        <div className="female-genre">
+                            <label>Female</label>
+                            <input id="female" type="checkbox" />
+                        </div>
 
-                <div>
-                    <label>Email :</label>
-                    <input type="email" placeholder="Enter your mail" />
-                    <p className="err-text"></p>
-                </div>
+                        <div className="male-genre">
+                            <label>Male</label>
+                            <input id="male" type="checkbox" />
+                        </div>
 
-                <div className="genre-type">
-                    <div className="female-genre">
-                        <label>Female</label>
-                        <input type="checkbox" />
+                        <div className="nonbinary-genre">
+                            <label>Other</label>
+                            <input id="other" type="checkbox" />
+                        </div>
+
                     </div>
 
-                    <div className="male-genre">
-                        <label>Male</label>
-                        <input type="checkbox" />
+                    {/* PASSWORD */}
+                    <div className="password-box">
+                        <label>Password :</label>
+                        <input name="input-passwd" className="form-inputs" required ref={addInputs} type="password" onChange={handleOnChange} />
+                        <p className="err-text">{validPwd}</p>
                     </div>
 
-                    <div className="nonbinary-genre">
-                        <label>Non-binary</label>
-                        <input type="checkbox" />
+                    <div className="password-check">
+                        <label>Retype your password :</label>
+                        <input name="repeat-paswwd" className="form-inputs" required ref={addInputs} type="password" onChange={handleOnChange} />
+                        <p className="err-text">{validPwd}</p>
                     </div>
 
-                    <p className="err-text"></p>
-                </div>
+                    <button>Submit</button>
+                </form>
 
-                <div className="password-box">
-                    <label>Password :</label>
-                    <input type="password" />
-                    <p className="err-text"></p>
-                </div>
+            </div >
 
-                <div className="password-check">
-                    <label>Retype your password :</label>
-                    <input type="password" />
-                    <p className="err-text"></p>
-                </div>
-
-            </form>
-
-        </div>
+        </>
     )
 }
 
-class signUp extends Component {
-    state = {
-        signed: false,
-    }
-    render() {
-        return (
-            <div className="logIn-style">
-                <img src={Connect} alt="mobile-ver" className="image-mobile" />
-                <Articles image={Connect} side="right" title="Connexion">
-                    {signUpForm()}
-                    <p>Already have an account ? <Link to="/login" className="register-acc">Log In !</Link></p>
-                </Articles>
+function signUp() {
 
-            </div>
-        );
-    }
+    return (
+        <div className="logIn-style">
+
+            <img src={Connect} alt="mobile-ver" className="image-mobile" />
+
+            <Articles image={Connect} side="right" title="Connexion">
+
+                {SignUpForm()}
+                <p>Already have an account ? <Link to="/login" className="register-acc">Log In !</Link></p>
+
+            </Articles>
+
+        </div>
+    );
+
 }
 
 export default signUp;

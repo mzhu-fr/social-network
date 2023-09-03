@@ -1,6 +1,6 @@
 import './article.css';
 
-function articles({ children, title, image, side }) {
+function Articles({ children, title, image, side }) {
 
     let displayImage = <img src={image} alt="actu" />
     if (side === "left") {
@@ -27,4 +27,4 @@ function articles({ children, title, image, side }) {
     }
 }
 
-export default articles;
+export default Articles;
