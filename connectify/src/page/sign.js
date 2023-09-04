@@ -1,9 +1,10 @@
 import '../style/connexion.css';
+
 import React, { useContext, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../page/userContext';
 
-import Connect from '../ressources/connection/fd_connexion.jpg';
+import Connect from '../ressources/signin/pexels-budgeron-bach-5158233.jpg';
 import Articles from '../components/article/article';
 
 // REGEX PATTERN
@@ -13,7 +14,7 @@ function checkPwd(pwd) {
 }
 
 // SIGN UP FORM
-async function SignUpForm() {
+function SignUpForm() {
 
     const { signUp } = useContext(UserContext);
     const navigate = useNavigate();
@@ -33,16 +34,10 @@ async function SignUpForm() {
     const [validation, setValidation] = useState("");
     const [validPwd, setValidPwd] = useState("");
 
-    const username = inputs.current[0].value;
-    const userRef = db.collection('userID').doc('user-info');
-
-    await userRef.set({
-        'username': username,
-    })
-
     const handleOnChange = () => {
         setValidPwd("");
     }
+
 
     // VALIDATE THE FORM AND CHECK THE WRONGS
     const handleForm = async e => {
@@ -104,25 +99,6 @@ async function SignUpForm() {
                         <label>Email :</label>
                         <input name="email" className="form-inputs" required ref={addInputs} type="email" placeholder="Enter your mail" onChange={handleOnChange} />
                         <p className="err-text">{validation}</p>
-                    </div>
-
-                    {/* GENRE/SEX */}
-                    <div className="genre-type">
-                        <div className="female-genre">
-                            <label>Female</label>
-                            <input id="female" type="checkbox" />
-                        </div>
-
-                        <div className="male-genre">
-                            <label>Male</label>
-                            <input id="male" type="checkbox" />
-                        </div>
-
-                        <div className="nonbinary-genre">
-                            <label>Other</label>
-                            <input id="other" type="checkbox" />
-                        </div>
-
                     </div>
 
                     {/* PASSWORD */}

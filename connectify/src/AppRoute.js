@@ -6,7 +6,6 @@ import Connexion from './page/login';
 import SignUp from './page/sign';
 import Profile from './profile/profile';
 import ProfileWall from './profile/profileHome/profile-wall';
-import ProfileUser from './profile/profileHome/profile-user'
 
 
 import Navbar from './components/navbar/navbar';
@@ -32,7 +31,6 @@ function AppRoutes() {
 
           <Route path="/profile" element={<Profile />}>
             <Route path="/profile/profile-wall" element={<ProfileWall />} />
-            <Route path="/profile/profile-user" element={<ProfileUser />} />
           </Route>
 
           <Route path="*" element={<ErrorPage />} />

@@ -10,6 +10,9 @@
     right: 0;
     left: 0;
     position: absolute;
+    z-index: 100;
+
+
 }
 
 .navbarContent {
@@ -46,12 +49,17 @@
     background-color: var(--opacity-primary);
 }
 
+.navbar .hamburger {
+    display: none;
+}
+
 @media (max-width: 1300px) {
     .logoNav {
         font-size: 1em;
+        /* margin: auto; */
     }
 
     .navbarContent {
-        display: none;
+        font-size: 0.5em;
     }
 }

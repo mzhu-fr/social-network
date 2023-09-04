@@ -5,7 +5,6 @@ import { UserContext } from '../../page/userContext';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase-config';
 
-
 function Header() {
 
     const navigate = useNavigate();
@@ -34,7 +33,7 @@ function Header() {
                     <Link to="/signup" onClick="" className="navName signBox">Sign Up</Link>
                 </div>
 
-            </div>
+            </div >
         )
     }
 
@@ -45,9 +44,7 @@ function Header() {
             <Link to="/" className="logoNav">Connectify</Link >
 
             <div className="navbarContent">
-                <Link to="/profile/profile-user" className="navName homeStyle">Profile</Link>
-
-                <Link to="/profile/profile-wall" className="navName">Wall</Link>
+                <Link to="/profile/profile-wall" className="navName homeStyle">Profile</Link>
 
                 <Link to="/" onClick={logOut} className="navName signBox">Log Out</Link>
             </div>

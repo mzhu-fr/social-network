@@ -47,7 +47,7 @@
 }
 
 @media (max-width: 1300px) {
-    .divText>p {
+    .paragraph {
         font-size: 1em;
     }
 
@@ -58,4 +58,5 @@
     .divImage {
         display: none;
     }
+
 }

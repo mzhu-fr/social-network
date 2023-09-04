@@ -23,7 +23,7 @@ form {
 
 button {
     padding: 0.5em;
-    margin: 0 auto;
+    margin: 0.5em;
     border: 1px solid var(--primary);
     background-color: var(--secondary-opacity);
     border-radius: 15px;
@@ -44,4 +44,16 @@ label {
     color: var(--black);
     text-align: left;
     padding-bottom: 0.5em;
+}
+
+form {
+    background-color: var(--primary);
+    border-radius: 5px;
+}
+
+@media (max-width: 1300px) {
+    button {
+        padding: 0.2em;
+        margin-top: 0.5em;
+    }
 }
