@@ -1,5 +1,9 @@
-.footer {
+footer {
     background: var(--secondary);
-    padding : 1em;
+    padding: 1em;
     text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
 }

@@ -5,6 +5,16 @@ import { UserContext } from '../../page/userContext';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase-config';
 
+function openNav() {
+    console.log("open navbar");
+    document.getElementById("nav-mobile").style.width = "100vw";
+}
+
+function closeNav() {
+    console.log("close navbar");
+    document.getElementById("nav-mobile").style.width = "0%";
+}
+
 function Header() {
 
     const navigate = useNavigate();
@@ -12,6 +22,7 @@ function Header() {
         try {
             await signOut(auth);
             navigate("/");
+            console.log("you left, bye bye ! ")
         }
         catch {
             alert("Can't log out, retry later");
@@ -33,7 +44,17 @@ function Header() {
                     <Link to="/signup" onClick="" className="navName signBox">Sign Up</Link>
                 </div>
 
-            </div >
+                <span className='menu-burger' onClick={openNav}>☰ </span>
+                <div id="nav-mobile" className="overlay">
+                    <span className="open-nav" onClick={closeNav}>X </span>
+                    <div className="overlay-content">
+                        <Link to={'/'}>Accueil</Link>
+                        <Link to={'connexion'}>Connexion</Link>
+                        <Link to={'inscription'}>Inscription</Link>
+                    </div>
+
+                </div >
+            </div>
         )
     }
 
@@ -46,8 +67,23 @@ function Header() {
             <div className="navbarContent">
                 <Link to="/profile/profile-wall" className="navName homeStyle">Profile</Link>
 
+                <Link to="/contact" className="navName homeStyle">Contact</Link>
+
                 <Link to="/" onClick={logOut} className="navName signBox">Log Out</Link>
             </div>
+
+            <span className='menu-burger' onClick={openNav}>☰ </span>
+            <div id="nav-mobile" className="overlay">
+                <span className="open-nav" onClick={closeNav}>X </span>
+                <div className="overlay-content">
+                    <Link to="/profile/profile-wall" className="navName homeStyle">Profile</Link>
+
+                    <Link to="/contact" className="navName homeStyle">Contact</Link>
+
+                    <Link to="/" onClick={logOut} className="navName signBox">Log Out</Link>
+                </div>
+
+            </div >
 
         </div>
     );

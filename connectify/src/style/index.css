@@ -14,7 +14,8 @@ code {
 
 * {
   box-sizing: border-box;
-  border: none; margin: 0;
+  border: none;
+  margin: 0;
   padding: 0;
   list-style: none;
   text-decoration: none;
@@ -23,12 +24,17 @@ code {
 }
 
 :root {
-  --primary : #ffcccc;
-  --secondary : #714288;
-  --title : #9873b9;
-  --text : #9873b9;
-  --black : #301934;
-  --white : #e6e6e6;
-  --secondary-opacity : rgba(113, 66, 136, 0.5);
-  --opacity-primary : rgba(255, 204, 204, 0.5);
+  --primary: #ffcccc;
+  --secondary: #714288;
+  --title: #9873b9;
+  --text: #9873b9;
+  --black: #301934;
+  --white: #e6e6e6;
+  --secondary-opacity: rgba(113, 66, 136, 0.5);
+  --opacity-primary: rgba(255, 204, 204, 0.5);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
 }
